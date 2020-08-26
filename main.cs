@@ -3,7 +3,7 @@ using System;
 class MainClass {
 
   public static void Main (string[] args) {
-    Ex02();
+    Ex03();
   }
 
   // Exercicio 1
@@ -87,8 +87,55 @@ class MainClass {
 
   //Exercicio 3
   public static void Ex03(){
+    int voto;
+    int jose    = 0;
+    int joana   = 0;
+    int roberto = 0;
+    int branco  = 0;
+    int nulo    = 0;
 
+    do{
+      Console.WriteLine("##### VOTAÇÂO #####\n");
+      Console.WriteLine("33 - José Couve");
+      Console.WriteLine("25 - Joana Bravo");
+      Console.WriteLine("10 - Roberto Nove");
+      Console.WriteLine("0  - Voto Branco");
+      Console.WriteLine("4  - Voto Nulo\n");
+      Console.WriteLine("-1 = Encerrar Votação\n");
 
+      Console.Write("Informe seu voto: ");
+      voto = int.Parse( Console.ReadLine() );
+
+      if( voto == 33 ){
+        jose += 1;
+      }else if( voto == 25 ){
+        joana += 1;
+      }else if( voto == 10 ){
+        roberto += 1;
+      }else if( voto == 0 ){
+        branco += 1;
+      }else if( voto == 4 ){
+        nulo += 1;
+      }else if( voto == -1 ){
+        Console.WriteLine("\nVotação Encerrada!");
+        Console.WriteLine("Computando os Votos!\n");
+      }else{
+        Console.WriteLine("\nVoto Invalido!");
+        Console.WriteLine("Repita a Votação\n");
+      }
+
+    }while(voto != -1);
+    
+    if( (jose > joana) && ( jose > roberto ) ){
+      Console.WriteLine("Jose Couve Ganhou !");
+    }else if( joana > roberto ){
+      Console.WriteLine("Joana Bravo Ganhou !");
+    }else{
+      Console.WriteLine("Roberto Nove Ganhou !");
+    }
+    
+    Console.WriteLine("Quantiade de Votos em Branco: {0}", branco);
+    Console.WriteLine("Quantiade de Votos em Nulos: {0}", nulo);
 
   }
 
